@@ -10,12 +10,13 @@ function getComputerChoice(){
 
 //Elegir usurio piedra, papel o tijera
 function getHumanChoice(){
-    let opcion = prompt('Ingrese su opción: "Piedra, Papel o Tijera"'," ");
+    let opcion = prompt('Ingrese su opción: "Piedra, Papel o Tijera"',"");
     return opcion.toLowerCase();
 }
 
 //Jugar usuario vs pc
 function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
+    alert(`La computadora eligió ${computerChoice}`)
     console.log(`Elección de la computadora: "${computerChoice}" tu elección: "${humanChoice}"`);
 
     if (humanChoice === computerChoice) {
@@ -38,7 +39,8 @@ function playGame(){
     for(let i=0; i < 5; i++){
         playRound();
     }
-    console.log(`Tu marcador es: ${humanScorey} y de la computadora: ${computerScore}`)
+    alert(`Tu marcador es: ${humanScorey} y de la computadora: ${computerScore}`)
+
 }
 
 playGame()

@@ -1,3 +1,6 @@
+let humanScorey = 0;
+let computerScore = 0;
+
 //Elegir valor maquina pidra, papel o tijera
 function getComputerChoice(){
     const opciones = ["piedra","papel","tijera"];
@@ -14,6 +17,7 @@ function getHumanChoice(){
 //Jugar usuario vs pc
 function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
     console.log(`Elección de la computadora: "${computerChoice}" tu elección: "${humanChoice}"`);
+
     if (humanChoice === computerChoice) {
         console.log("Empate");
     } else if (

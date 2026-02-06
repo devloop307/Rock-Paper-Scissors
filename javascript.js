@@ -2,14 +2,41 @@
 function getComputerChoice(){
     const opciones = ["piedra","papel","tijera"];
     let valor = opciones[Math.floor(Math.random() * opciones.length)];
-    return console.log(valor);
+    return valor;
 }
-getComputerChoice()
 
 //Elegir usurio piedra, papel o tijera
 function getHumanChoice(){
-    let opcion = prompt('Ingrese su opción: "Piedra, papel o Tijera"'," ");
-    return console.log(opcion.toLowerCase())
+    let opcion = prompt('Ingrese su opción: "Piedra, Papel o Tijera"'," ");
+    return opcion.toLowerCase();
 }
 
-getHumanChoice()
+//Jugar usuario vs pc
+function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
+    console.log(`Elección de la computadora: "${computerChoice}" tu elección: "${humanChoice}"`);
+    if (humanChoice === computerChoice) {
+        console.log("Empate");
+    } else if (
+        (humanChoice === "papel" && computerChoice === "piedra") ||
+        (humanChoice === "piedra" && computerChoice === "tijera") ||
+        (humanChoice === "tijera" && computerChoice === "papel")
+    ) {
+        humanScorey ++;
+        console.log(`¡Ganaste!`);
+    } else {
+        computerScore ++;
+        console.log(`¡Perdiste!`);
+    }
+}
+
+// Veces a jugar y score
+function playGame(){
+    for(let i=0; i < 5; i++){
+        playRound();
+    }
+    console.log(`Tu marcador es: ${humanScorey} y de la computadora: ${computerScore}`)
+}
+
+playGame()
+
+
